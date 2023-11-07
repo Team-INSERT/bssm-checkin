@@ -1,5 +1,3 @@
 const getElement = (domain, property) => {
-  return document.querySelector(`${domain}--${property}`);
+  return document.getElementById(`${domain}--${property}`);
 };
-
-const baseURL = process.env.baseURL;

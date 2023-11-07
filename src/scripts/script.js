@@ -1,10 +1,6 @@
-const CheckInButton = getElement("checkin", "button");
+(function mount() {
+  handleMountGetRoomInfo();
+})();
 
-CheckInButton.addEventListener("click", async () => {
-  const data = await getRoom();
-
-  ["name", "domitoryType", "roomNumber", "subname"].forEach((property) => {
-    const element = getElement("user", property);
-    element.innerHTML = data[property];
-  });
-});
+const checkInButton = getElement("checkin", "button");
+checkInButton.addEventListener("click", handleCheckInButtonClick);

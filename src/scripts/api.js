@@ -1,14 +1,19 @@
 const insertAxios = axios.create({
-  baseURL,
+  baseURL: "https://newbsm.team-insert.com",
   withCredentials: true,
 });
 
+const http = {
+  getRoom,
+  checkInRoom,
+};
+
 const getRoom = async () => {
-  const authorization = localStorage.getItem("access_token");
-  const { data } = await axios.get("/checkIn/get", {
-    headers: {
-      Authorization: authorization,
-    },
-  });
+  const { data } = await insertAxios.get("/checkIn/get/", authorization());
+  return data;
+};
+
+const checkInRoom = async () => {
+  const { data } = await insertAxios.post("", authorization());
   return data;
 };

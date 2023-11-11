@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BSM - 기숙사 입사 체크 서비스</title>
+    <link href="./assets/style.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.10/dayjs.min.js"></script>
+  </head>
+  <body>
+    <div class="w-full flex items-center justify-center flex-col gap-12 py-10">
+      <table>
+        <caption>
+          기숙사 입사 현황
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">동 분류</th>
+            <th scope="col">방 번호</th>
+            <th scope="col">이름</th>
+            <th scope="col">입사 여부</th>
+            <th scope="col">입사 시간</th>
+          </tr>
+        </thead>
+        <tbody id="members"></tbody>
+      </table>
+    </div>
+    <!-- constants -->
+    <script src="./constants/id.js"></script>
+    <!-- utils -->
+    <script src="./utils/axiosConfig.js"></script>
+    <script src="./utils/close.js"></script>
+    <script src="./utils/element.js"></script>
+    <script src="./utils/dateFormat.js"></script>
+    <!-- services -->
+    <script src="./services/api.js"></script>
+    <!-- scripts -->
+    <script src="./scripts/join.js"></script>
+    <script src="./scripts/view.js"></script>
+  </body>
+</html>

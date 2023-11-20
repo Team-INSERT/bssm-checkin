@@ -18,11 +18,6 @@ const element = {
   "@query": (query) => document.querySelector(query),
 };
 
-const getAccessToken = () => {
-  const searchParams = new URLSearchParams(window.location.search);
-  return searchParams.get("authorization");
-};
-
 const getUserCheckIn = async () => {
   const Authorization = getAccessToken();
   const { data } = await insertAxios.get("/checkIn", {
@@ -32,10 +27,7 @@ const getUserCheckIn = async () => {
 };
 
 const getAllCheckIn = async () => {
-  const Authorization = getAccessToken();
-  const { data } = await insertAxios.get("checkIn/all", {
-    headers: { Authorization },
-  });
+  const { data } = await insertAxios.get("checkIn/all");
   return data;
 };
 

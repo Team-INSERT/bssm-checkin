@@ -15,42 +15,38 @@
     </script>
   </head>
   <body>
-    <div
-      id="info--box"
-      class="w-full h-[100vh] flex items-center justify-center flex-col gap-12"
+    <form
+      onsubmit="return preventReload(event)"
+      id="info--form"
+      class="flex flex-col gap-8 justify-center items-center"
     >
-      <div class="flex flex-col gap-1">
-        <h1 class="text-3xl font-semibold">
-          👋 환영해요, <span id="user--name"></span>님!
-        </h1>
-        <span class="text-lg text-gray-500 font-semibold"
-          >기숙사에 입소하셨나요?</span
-        >
+      <div
+        id="info--box"
+        class="w-full h-[100vh] flex items-center justify-center flex-col gap-12"
+      >
+        <div class="flex flex-col gap-1">
+          <h1 class="text-3xl font-semibold">
+            👋 환영해요, <span id="user--name"></span>님!
+          </h1>
+          <span class="text-lg text-gray-500 font-semibold"
+            >기숙사에 입소하셨나요?</span
+          >
+        </div>
+        <div class="flex flex-col items-center justify-center gap-2">
+          <span class="text-lg font-medium text-gray-400">
+            <span id="user--dormitoryType"></span>동
+            <span id="user--roomNumber"></span>호
+            <span id="user--subName"></span>
+          </span>
+          <button
+            id="checkin--button"
+            class="w-fit py-2 px-6 bg-[#73AEE3] rounded-lg text-white font-semibold disabled:bg-gray-300"
+          >
+            입사 체크
+          </button>
+        </div>
       </div>
-      <div class="flex flex-col items-center justify-center gap-2">
-        <span class="text-lg font-medium text-gray-400">
-          <span id="user--dormitoryType"></span>동
-          <span id="user--roomNumber"></span>호
-          <span id="user--subName"></span>
-        </span>
-        <button
-          id="checkin--button"
-          class="w-fit py-2 px-6 bg-[#73AEE3] rounded-lg text-white font-semibold disabled:bg-gray-300"
-        >
-          입사 체크
-        </button>
-      </div>
-    </div>
-    <!-- constants -->
-    <script src="./constants/id.js"></script>
-    <!-- utils -->
-    <script src="./utils/axiosConfig.js"></script>
-    <script src="./utils/closePopup.js"></script>
-    <script src="./utils/element.js"></script>
-    <script src="./utils/dateFormat.js"></script>
-    <!-- services -->
-    <script src="./services/api.js"></script>
-    <!-- scripts -->
+    </form>
     <script src="./scripts/join.js"></script>
   </body>
 </html>

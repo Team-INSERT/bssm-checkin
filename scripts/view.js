@@ -1,3 +1,82 @@
+const insertAxios = axios.create({
+  baseURL: "https://newbsm.team-insert.com/api",
+  withCredentials: true,
+});
+
+const closePopup = () => {
+  setTimeout(() => window.close(), 5000);
+};
+
+const dateFormat = (date) => {
+  if (!date) return "-";
+  return dayjs(date).format("H시 m분 s초");
+};
+
+const element = {
+  "@id": (id) => document.getElementById(id),
+  "@class": (className) => document.getElementsByClassName(className),
+  "@query": (query) => document.querySelector(query),
+};
+
+const getAccessToken = () => {
+  const searchParams = new URLSearchParams(window.location.search);
+  return searchParams.get("authorization");
+};
+
+const getUserCheckIn = async () => {
+  const Authorization = getAccessToken();
+  const { data } = await insertAxios.get("/checkIn", {
+    headers: { Authorization },
+  });
+  return data;
+};
+
+const getAllCheckIn = async () => {
+  const Authorization = getAccessToken();
+  const { data } = await insertAxios.get("checkIn/all", {
+    headers: { Authorization },
+  });
+  return data;
+};
+
+const requestCheckIn = async (requestData) => {
+  const Authorization = getAccessToken();
+  const { data } = await insertAxios.post(
+    "/checkIn",
+    { ...requestData },
+    { headers: { Authorization } }
+  );
+  return data;
+};
+
+const createRoom = async (requestData) => {
+  const Authorization = getAccessToken();
+  const { data } = await insertAxios.post(
+    "/room/allocate",
+    { requestData },
+    { headers: { Authorization } }
+  );
+  return data;
+};
+
+const USER = {
+  NAME: "user--name",
+  DORMITORY_TYPE: "user--dormitoryType",
+  ROOM_NUMBER: "user--roomNumber",
+  SUB_NAME: "user--subName",
+};
+
+const CHECK_IN = {
+  BUTTON: "checkin--button",
+};
+
+const INFO_BOX = {
+  FORM: "info--form",
+  BOX: "info--box",
+};
+
+const MEMBERS = "members";
+
 (async () => {
   const { data } = await getAllCheckIn();
   const tableList = element["@id"](MEMBERS);

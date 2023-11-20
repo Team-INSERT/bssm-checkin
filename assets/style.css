@@ -11,6 +11,10 @@ th {
   border: 2px solid #f2f3f7;
 }
 
+table {
+  width: 80%;
+}
+
 caption {
   font-size: 24px;
   font-weight: 600;
@@ -22,6 +26,14 @@ thead tr th {
   color: white;
   font-weight: 500;
   font-size: 14px;
+}
+
+td div {
+  padding: 12px 0;
+}
+
+td .S {
+  border-bottom: 1px solid #ccc;
 }
 
 td,
@@ -38,14 +50,12 @@ th {
   justify-content: center;
   align-items: center;
   padding: 0;
-  width: fit-content;
 }
 
-.room--members div,
-.check--in div {
+.check--in {
+  background-color: green;
   width: 100%;
-  height: 100%;
-  padding: 10px 0;
+  display: flex;
 }
 
 .line--box {

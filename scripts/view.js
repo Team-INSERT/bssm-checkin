@@ -73,8 +73,8 @@ const MEMBERS = "members";
   const data = await getAllCheckIn();
   const tableList = element["@id"](MEMBERS);
 
-  tableList.innerHTML = data.map(
-    ({ dormitoryType, roomNumber, roomMates, checkInList }) => {
+  tableList.innerHTML = data
+    .map(({ dormitoryType, roomNumber, roomMates, checkInList }) => {
       const [firstMember, secondMember] = roomMates || ["-", "-"];
       const [firstCheckInInfo, secondCheckInInfo] = checkInList;
       const isCheckInFirstMember =
@@ -100,6 +100,6 @@ const MEMBERS = "members";
         </td>
       </tr>
       `;
-    }
-  );
+    })
+    .join("");
 })();

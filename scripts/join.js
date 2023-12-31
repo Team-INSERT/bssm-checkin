@@ -3,14 +3,6 @@ const insertAxios = axios.create({
   withCredentials: true,
 });
 
-const closePopup = () => {
-  setTimeout(() => window.close(), 3000);
-};
-
-const preventReload = (event) => {
-  event.preventDefault();
-};
-
 const dateFormat = (date) => {
   if (!date) return "-";
   return dayjs(date).format("H시 m분 s초");
@@ -27,38 +19,29 @@ const getAccessToken = () => {
   return searchParams.get("authorization");
 };
 
+const Authorization = getAccessToken();
+
 const getUserCheckIn = async () => {
-  const Authorization = getAccessToken();
   const { data } = await insertAxios.get("/checkIn", {
     headers: { Authorization },
   });
   return data;
 };
 
-const getAllCheckIn = async () => {
-  const Authorization = getAccessToken();
-  const { data } = await insertAxios.get("checkIn/all", {
-    headers: { Authorization },
-  });
-  return data;
-};
-
 const requestCheckIn = async (requestData) => {
-  const Authorization = getAccessToken();
   const { data } = await insertAxios.post(
     "/checkIn",
     { ...requestData },
-    { headers: { Authorization } }
+    { headers: { Authorization } },
   );
   return data;
 };
 
 const createRoom = async (requestData) => {
-  const Authorization = getAccessToken();
   const { data } = await insertAxios.post(
     "/room/allocate",
     { ...requestData },
-    { headers: { Authorization } }
+    { headers: { Authorization } },
   );
   return data;
 };
@@ -78,8 +61,6 @@ const INFO_BOX = {
   FORM: "info--form",
   BOX: "info--box",
 };
-
-const MEMBERS = "members";
 
 const form = element["@id"](INFO_BOX.FORM);
 const box = element["@id"](INFO_BOX.BOX);

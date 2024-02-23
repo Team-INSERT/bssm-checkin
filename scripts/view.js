@@ -92,7 +92,7 @@ const MEMBERS = "members";
         </td>
         <td>
           <div class="S">${isCheckInFirstMember ? "✔️" : "-"}</div>
-          <div>${isCheckInSecondMember ? "✔️" : "-"}</div>
+          <div>${dateFormat(secondCheckInInfo?.checkInTime) !== "-" ? "✔️" : "-"}</div>
         </td>
         <td>
           <div class="S">${dateFormat(firstCheckInInfo?.checkInTime)}</div>

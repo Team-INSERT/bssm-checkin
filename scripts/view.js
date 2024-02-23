@@ -81,7 +81,7 @@ const MEMBERS = "members";
         firstMember?.id === firstCheckInInfo?.userSimpleWithNameRes?.id;
       const isCheckInSecondMember =
         secondMember?.id === secondCheckInInfo?.userSimpleWithNameRes?.id;
-
+      console.log(secondCheckInInfo);
       return `
       <tr>
         <td>${dormitoryType}</td>
